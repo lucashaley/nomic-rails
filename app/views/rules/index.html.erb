@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Number</th>
+      <th>Wording</th>
+      <th>Mutable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rules.each do |rule| %>
+      <tr>
+        <td><%= rule.active %></td>
+        <td><%= rule.number %></td>
+        <td><%= rule.wording %></td>
+        <td><%= rule.mutable %></td>
+        <td><%= link_to 'Show', rule %></td>
+        <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
+        <td><%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rule', new_rule_path %>

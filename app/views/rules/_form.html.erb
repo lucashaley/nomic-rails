@@ -1,0 +1,35 @@
+<%= form_for(rule) do |f| %>
+  <% if rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% rule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active, :class => 'checkbox' %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :wording %><br>
+    <%= f.text_area :wording %>
+  </div>
+  <div class="field">
+    <%= f.label :mutable %><br>
+    <%= f.check_box :mutable, :class => 'checkbox' %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
